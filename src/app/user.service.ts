@@ -12,11 +12,14 @@ export class UserService {
   errorEmitter: Subject<string> = new Subject<string>();
 
   constructor(private dataService: DataService) {
-    this.dataService.getUsers()
-      .subscribe((res: any) => {
-        this.users = res.users;
+    this.dataService.getUsers().subscribe({
+      next: (res: any) => {
+        this.users = res;
         this.usersSubject.next([...this.users]);
-      });
+      }, error: (e) => {
+        this.errorEmitter.next(e);
+      }
+    });
   }
 
   addUsers(user: User) {
@@ -30,16 +33,15 @@ export class UserService {
       return false;
     }
 
-    this.dataService.addUser(user).subscribe(((res: any) => {
-      if (res.error) {
-        this.errorEmitter.next(res.error);
-        return;
+    this.dataService.addUser(user).subscribe({
+      next: (res: any) => {
+        user.id = res.id;
+        this.users.push(user);
+        this.usersSubject.next([...this.users]);
+      }, error: (e) => {
+        this.errorEmitter.next(e);
       }
-
-      user.id = res.user.id;
-      this.users.push(user);
-      this.usersSubject.next([...this.users]);
-    }));
+    });
 
     return true;
   }
