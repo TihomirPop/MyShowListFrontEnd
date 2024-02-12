@@ -6,13 +6,23 @@ import {AppComponent} from './app.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AuthGuard} from "./auth.guard";
 import {AuthInterceptor} from "./auth.interceptor";
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { ShowComponent } from './show/show.component';
 import { ShowsComponent } from './shows/shows.component';
+import {
+  MatCell,
+  MatCellDef,
+  MatColumnDef,
+  MatHeaderCell,
+  MatHeaderCellDef,
+  MatHeaderRow, MatHeaderRowDef, MatRow, MatRowDef,
+  MatTable, MatTextColumn
+} from "@angular/material/table";
+import { FilterPipe } from './filter.pipe';
 
 @NgModule({
   declarations: [
@@ -22,13 +32,26 @@ import { ShowsComponent } from './shows/shows.component';
     HeaderComponent,
     HomeComponent,
     ShowComponent,
-    ShowsComponent
+    ShowsComponent,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatTable,
+    MatColumnDef,
+    MatHeaderCell,
+    MatHeaderCellDef,
+    MatCell,
+    MatCellDef,
+    MatHeaderRow,
+    MatHeaderRowDef,
+    MatRow,
+    MatRowDef,
+    MatTextColumn,
+    FormsModule
   ],
   providers: [AuthGuard, {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
   bootstrap: [AppComponent]

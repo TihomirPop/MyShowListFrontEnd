@@ -18,4 +18,25 @@ export class DataService {
   addUser(user: any) {
     return this.http.post(this.usersApi, user);
   }
+
+  getShows() {
+    return this.http.get(`${environment.API_URL}/shows`);
+  }
+
+  getShow(id: number) {
+    return this.http.get(`${environment.API_URL}/shows/${id}`);
+  }
+
+  addShow(show: any) {
+    return this.http.post(`${environment.API_URL}/shows`, show);
+  }
+
+  updateShow(show: any) {
+    return this.http.put(`${environment.API_URL}/shows/${show.id}`, show);
+  }
+
+  deleteShow(id: number) {
+    return this.http.delete(`${environment.API_URL}/shows/${id}`);
+  }
+
 }
