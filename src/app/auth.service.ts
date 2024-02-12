@@ -3,13 +3,14 @@ import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 import {Router} from "@angular/router";
 import {environment} from "../environments/environment";
 import {User} from "./models";
-import {Subject} from "rxjs";
+import {firstValueFrom, Subject} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  authApi = environment.API_URL + '/auth'
+  authApi = environment.API_URL + '/auth';
+  meApi = environment.API_URL + '/me';
   private user: User | null = null;
   private token: string | null = null;
 
@@ -33,4 +34,36 @@ export class AuthService {
       });
   }
 
+  getUser() {
+    if (this.user)
+      return {...this.user};
+
+    return null
+  }
+
+  getToken() {
+    if (this.token)
+      return this.token;
+
+    const token = localStorage.getItem('token');
+    this.token = token;
+
+    if (this.token)
+      return token;
+
+    return null;
+  }
+
+  async whoAmI(): Promise<any> {
+    if (!this.getToken())
+      return null;
+
+    const res: any = await firstValueFrom(this.http.get(this.meApi));
+
+    if (!res.user)
+      return null;
+
+    this.user = res.user;
+    return res;
+  }
 }
