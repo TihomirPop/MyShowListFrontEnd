@@ -66,4 +66,11 @@ export class AuthService {
     this.user = res.user;
     return res;
   }
+
+  logout() {
+    this.user = null;
+    this.token = null;
+    localStorage.removeItem('token');
+    this.router.navigate(['/login']);
+  }
 }

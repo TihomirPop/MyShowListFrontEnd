@@ -1,0 +1,8 @@
+<div class="header">
+  <a routerLink="/">Home</a>
+  <a routerLink="/profile">My List</a>
+  <div class="header-right">
+    <a routerLink="/profile">{{user.username}}</a>
+    <a (click)="logout()">Logout</a>
+  </div>
+</div>

@@ -10,13 +10,19 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {AuthGuard} from "./auth.guard";
 import {AuthInterceptor} from "./auth.interceptor";
 import { HeaderComponent } from './header/header.component';
+import { HomeComponent } from './home/home.component';
+import { ShowComponent } from './show/show.component';
+import { ShowsComponent } from './shows/shows.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    HeaderComponent
+    HeaderComponent,
+    HomeComponent,
+    ShowComponent,
+    ShowsComponent
   ],
   imports: [
     BrowserModule,
