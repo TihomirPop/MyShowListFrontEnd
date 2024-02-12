@@ -1,0 +1,16 @@
+<form class="centerScreen" (submit)="onLogin()" [formGroup]="signinForm">
+    <fieldset>
+        <input class="form-control" type="text" formControlName="username" placeholder="Username">
+    </fieldset>
+    <fieldset>
+        <input class="form-control" type="password" formControlName="password" placeholder="Password">
+    </fieldset>
+    <div *ngIf="errorMessage">{{errorMessage}}</div>
+    <div class="buttons">
+        <button class="btn btn-primary" type="submit" [disabled]="signinForm.invalid">Login</button>
+        <a href="/register">
+            <button class="btn btn-secondary" type="button">Register</button>
+        </a>
+    </div>
+</form>
+

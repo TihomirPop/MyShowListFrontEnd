@@ -1,0 +1,21 @@
+<form class="centerScreen" (submit)="onRegister()" [formGroup]="registerForm">
+    <fieldset>
+        <input class="form-control" type="text" formControlName="username" placeholder="Username">
+    </fieldset>
+    <fieldset>
+        <input class="form-control" type="password" formControlName="password" placeholder="Password">
+    </fieldset>
+    <fieldset>
+        <input class="form-control" type="password" formControlName="repeatPassword" placeholder="Repeat password">
+    </fieldset>
+    <fieldset>
+        <input class="form-control" type="text" formControlName="name" placeholder="Name">
+    </fieldset>
+    <fieldset>
+        <input class="form-control" type="email" formControlName="email" placeholder="Email">
+    </fieldset>
+    <div *ngIf="errorMessage">{{errorMessage}}</div>
+    <button class="btn btn-primary" type="submit" [disabled]="registerForm.invalid">Register</button>
+    <a href="/login">Back to login</a>
+</form>
+
