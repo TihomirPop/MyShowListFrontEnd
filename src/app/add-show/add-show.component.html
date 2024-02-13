@@ -1,0 +1,48 @@
+<app-header/>
+<div class="centerScreen">
+  <label>Title:</label>
+  <input type="text" [(ngModel)]="show.title" class="form-control">
+  <br>
+  <label>Description:</label>
+  <textarea [(ngModel)]="show.description" class="form-control"></textarea>
+  <br>
+  <label>Type:</label>
+  <select [(ngModel)]="show.type" class="form-select">
+    <option value="0" selected>TV Series</option>
+    <option value="1">Movie</option>
+  </select>
+  <br>
+  <label>Episodes:</label>
+  <input type="number" [(ngModel)]="show.episodes" class="form-control">
+  <br>
+  <label>Genres:</label>
+  <select multiple [(ngModel)]="genres" class="form-select">
+    <option value="0">Action</option>
+    <option value="1">Adventure</option>
+    <option value="2">Avant Garde</option>
+    <option value="3">Award Winning</option>
+    <option value="4">Comedy</option>
+    <option value="5">Drama</option>
+    <option value="6">Fantasy</option>
+    <option value="7">Gourmet</option>
+    <option value="8">Horror</option>
+    <option value="9">Mystery</option>
+    <option value="10">Romance</option>
+    <option value="11">Sci-Fi</option>
+    <option value="12">Slice of Life</option>
+    <option value="13">Sports</option>
+    <option value="14">Supernatural</option>
+    <option value="15">Suspense</option>
+  </select>
+  <br>
+  <label>Start date:</label>
+  <input type="date" [(ngModel)]="show.startDate" class="form-select">
+  <br>
+  <label>End date:</label>
+  <input type="date" [(ngModel)]="show.endDate" class="form-select">
+  <br>
+  <label>Image url:</label>
+  <input type="text" [(ngModel)]="show.imageUrl" class="form-control">
+  <p class="error">{{error}}</p>
+  <button (click)="addShow()" class="btn btn-primary">Add show</button>
+</div>

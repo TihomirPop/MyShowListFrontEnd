@@ -15,6 +15,7 @@ export class Show {
   episodes: number = 0;
   startDate: Date = new Date();
   endDate: Date = new Date();
+  imageUrl: string = '';
   genres?: Genre[];
   comments?: Comment[];
 }

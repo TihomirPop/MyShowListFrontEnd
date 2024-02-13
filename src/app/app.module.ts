@@ -28,6 +28,10 @@ import { AddCommentComponent } from './add-comment/add-comment.component';
 import { UserShowComponent } from './user-show/user-show.component';
 import { MyListComponent } from './my-list/my-list.component';
 import { MyShowsComponent } from './my-shows/my-shows.component';
+import { AddShowComponent } from './add-show/add-show.component';
+import {MatFormField} from "@angular/material/form-field";
+import {MatOption, MatSelect} from "@angular/material/select";
+
 
 @NgModule({
   declarations: [
@@ -44,6 +48,7 @@ import { MyShowsComponent } from './my-shows/my-shows.component';
     UserShowComponent,
     MyListComponent,
     MyShowsComponent,
+    AddShowComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,7 +66,10 @@ import { MyShowsComponent } from './my-shows/my-shows.component';
     MatRow,
     MatRowDef,
     MatTextColumn,
-    FormsModule
+    FormsModule,
+    MatFormField,
+    MatSelect,
+    MatOption
   ],
   providers: [AuthGuard, {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
   bootstrap: [AppComponent]

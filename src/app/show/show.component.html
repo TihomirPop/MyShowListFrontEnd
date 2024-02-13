@@ -2,7 +2,7 @@
 <div class="topBottom">
   <div class="showPage">
     <div class="showLeft">
-      <img src="https://cdn.myanimelist.net/images/anime/1938/140374l.jpg" alt="{{show.title}}">
+      <img [src]="show.imageUrl" alt="{{show.title}}">
       <p>Type: {{show.type}}</p>
       <p>Episodes: {{show.episodes}}</p>
       <div *ngIf="show.genres">
@@ -12,8 +12,9 @@
         <p>Start date: {{show.startDate}}</p>
       </div>
       <div *ngIf="show.startDate">
-        <p>{{show.endDate}}</p>
+        <p>End date: {{show.endDate}}</p>
       </div>
+      <button *ngIf="user && user.isAdmin" (click)="deleteShow()" class="btn btn-danger">Delete show</button>
     </div>
     <div class="showRight">
       <h1>{{show.title}}</h1>

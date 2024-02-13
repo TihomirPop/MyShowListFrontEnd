@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {getGenreString, Show} from "../models";
 import {ShowService} from "../show.service";
 import {ActivatedRoute} from "@angular/router";
+import {AuthService} from "../auth.service";
 
 @Component({
   selector: 'app-show',
@@ -11,8 +12,9 @@ import {ActivatedRoute} from "@angular/router";
 export class ShowComponent implements OnInit{
   id?: number;
   show: Show = new Show();
+  user = this.authService.getUser();
 
-  constructor(private showService: ShowService, private route: ActivatedRoute) {
+  constructor(private showService: ShowService, private route: ActivatedRoute, private authService: AuthService) {
   }
 
   ngOnInit() {
@@ -21,6 +23,14 @@ export class ShowComponent implements OnInit{
       return;
 
     this.showService.getShow(this.id).then((show: any) => this.show = show)
+  }
+
+  deleteShow() {
+    this.id = this.route.snapshot.params['id'];
+    if (!this.id)
+      return;
+
+    this.showService.deleteShow(this.id);
   }
 
   protected readonly getGenreString = getGenreString;

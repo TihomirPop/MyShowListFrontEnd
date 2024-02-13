@@ -30,9 +30,9 @@ export class UserShowService {
     this.dataService.addMyShow(userShow).subscribe({
       next: (res: any) => {
         userShow.id = res.id;
+        userShow.show = res.show;
         this.userShows.push(userShow);
         this.userShowsSubject.next([...this.userShows]);
-        location.reload();
       }, error: (e) => {
         this.errorEmitter.next(e);
       }
@@ -41,11 +41,11 @@ export class UserShowService {
 
   updateUserShow(userShow: UserShow) {
     this.dataService.updateMyShow(userShow).subscribe({
-      next: (_res: any) => {
+      next: (res: any) => {
+        userShow.show = res.show;
         const index = this.userShows.findIndex(s => s.id === userShow.id);
         this.userShows[index] = userShow;
         this.userShowsSubject.next([...this.userShows]);
-        location.reload();
       }, error: (e) => {
         this.errorEmitter.next(e);
       }
