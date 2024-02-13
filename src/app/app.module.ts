@@ -23,6 +23,7 @@ import {
   MatTable, MatTextColumn
 } from "@angular/material/table";
 import { FilterPipe } from './filter.pipe';
+import { CommentComponent } from './comment/comment.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { FilterPipe } from './filter.pipe';
     ShowComponent,
     ShowsComponent,
     FilterPipe,
+    CommentComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ShowService} from "../show.service";
-import {Show} from "../models";
+import {getGenreString, Show} from "../models";
 import {Router} from "@angular/router";
 
 @Component({
@@ -24,22 +24,9 @@ export class ShowsComponent implements OnInit {
     });
   }
 
-  getGenreString(show: Show): string {
-    if (!show.genres)
-      return '';
-
-    const formattedStrings = show.genres.map(g => {
-      const words = g.name
-        .toLowerCase()
-        .split('_')
-        .map(word => word.charAt(0).toUpperCase() + word.slice(1));
-      return words.join(' ');
-    });
-
-    return formattedStrings.join(', ')
-  }
-
   onRowClick(show: Show) {
-    this.router.navigate([`/shows/${show.id}`]);
+    this.router.navigate([`${show.id}`]);
   }
+
+  protected readonly getGenreString = getGenreString;
 }

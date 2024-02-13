@@ -1,0 +1,20 @@
+.showPage {
+  display: flex;
+}
+
+img {
+  max-width: 300px;
+  max-height: 600px;
+  margin-bottom: 20px;
+}
+
+.showRight {
+  margin-left: 60px;
+}
+
+.topBottom {
+  width: 1000px;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+}
