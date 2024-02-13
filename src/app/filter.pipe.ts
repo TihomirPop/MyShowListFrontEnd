@@ -6,12 +6,22 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class FilterPipe implements PipeTransform {
 
   transform(array: any[], field: string, value: string): any {
-    if(!Array.isArray(array))
+    if (!Array.isArray(array))
       return [];
     if (!field || !value)
       return array;
 
-    return array.filter(element => element[field].toString().toLowerCase().includes(value.toLowerCase()));
+    const fields = field.split('.');
+
+    return array.filter(element => {
+      let fieldValue = element;
+      for (const f of fields) {
+        fieldValue = fieldValue[f];
+        if (fieldValue === undefined) return false;
+      }
+      return fieldValue.toString().toLowerCase().includes(value.toLowerCase());
+    });
   }
+
 
 }

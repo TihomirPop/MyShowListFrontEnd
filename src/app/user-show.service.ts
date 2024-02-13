@@ -32,6 +32,7 @@ export class UserShowService {
         userShow.id = res.id;
         this.userShows.push(userShow);
         this.userShowsSubject.next([...this.userShows]);
+        location.reload();
       }, error: (e) => {
         this.errorEmitter.next(e);
       }
@@ -44,6 +45,7 @@ export class UserShowService {
         const index = this.userShows.findIndex(s => s.id === userShow.id);
         this.userShows[index] = userShow;
         this.userShowsSubject.next([...this.userShows]);
+        location.reload();
       }, error: (e) => {
         this.errorEmitter.next(e);
       }

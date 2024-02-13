@@ -1,0 +1,13 @@
+.search {
+  margin: 20px;
+  width: 300px;
+}
+
+.mat-mdc-row .mat-mdc-cell {
+  cursor: pointer;
+}
+
+.mat-mdc-row:hover .mat-mdc-cell {
+  border-top: 3px solid darkgray;
+  border-bottom: 3px solid darkgray;
+}
