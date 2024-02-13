@@ -24,6 +24,7 @@ import {
 } from "@angular/material/table";
 import { FilterPipe } from './filter.pipe';
 import { CommentComponent } from './comment/comment.component';
+import { AddCommentComponent } from './add-comment/add-comment.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { CommentComponent } from './comment/comment.component';
     ShowsComponent,
     FilterPipe,
     CommentComponent,
+    AddCommentComponent,
   ],
   imports: [
     BrowserModule,

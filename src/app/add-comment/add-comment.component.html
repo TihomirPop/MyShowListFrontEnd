@@ -1,0 +1,15 @@
+<div class="addComment">
+  <button class="btn" [ngClass]="isAdding ? 'btn-danger' : 'btn-primary'"
+          (click)="addCommentButtonHandler()">{{isAdding ? 'Cancel' : 'Add comment'}}</button>
+
+  <div class="addCommentForm" *ngIf="isAdding">
+    <label for="user">User:</label>
+    <input class="form-control" type="text" id="user" disabled value="{{user.username}}">
+    <label for="comment">Comment:</label>
+    <textarea class="form-control" id="comment" [(ngModel)]="comment.text"></textarea>
+    <button class="btn" [ngClass]="comment.text.length === 0 ? 'btn-danger' : 'btn-success'"
+            [disabled]="comment.text.length === 0" (click)="sendButtonHandler()"><i class="bi bi-send-fill"></i>
+      Send
+    </button>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+.addComment {
+  margin: 10px;
+}
+
+.addComment .addCommentForm {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin: 10px;
+}
+
+.addComment .addCommentForm button {
+  margin-top: 10px;
+}

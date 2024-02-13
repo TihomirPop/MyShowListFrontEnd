@@ -1,0 +1,20 @@
+.comment{
+  padding: 10px;
+  margin: 10px;
+  background-color: rgb(230, 230, 230);
+  border: 1px solid rgb(200, 200, 200);
+  border-radius: 10px;
+}
+.comment .text, .comment textarea{
+  padding: 10px;
+  margin: 10px;
+  min-height: 100px;
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(200, 200, 200);
+  border-radius: 10px;
+}
+
+.comment button {
+  margin: 5px;
+}

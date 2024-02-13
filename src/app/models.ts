@@ -25,10 +25,11 @@ export class Genre {
 }
 
 export class Comment {
-  id: number = 0;
-  userId: number = 0;
-  showId: number = 0;
+  id: number = -1;
+  userId: number = -1;
+  showId: number = -1;
   text: string = '';
+  updatedAt: Date = new Date();
 }
 
 export function getGenreString(show: Show): string {

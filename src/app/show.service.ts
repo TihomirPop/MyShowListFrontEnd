@@ -16,7 +16,6 @@ export class ShowService {
       next: (res: any) => {
         this.shows = res;
         this.showsSubject.next([...this.shows]);
-        console.log(this.shows);
       }, error: (e) => {
         this.errorEmitter.next(e);
       }
@@ -45,7 +44,7 @@ export class ShowService {
 
   updateShow(show: Show) {
     this.dataService.updateShow(show).subscribe({
-      next: (res: any) => {
+      next: (_res: any) => {
         const index = this.shows.findIndex(s => s.id === show.id);
         this.shows[index] = show;
         this.showsSubject.next([...this.shows]);
@@ -57,7 +56,7 @@ export class ShowService {
 
   deleteShow(id: number) {
     this.dataService.deleteShow(id).subscribe({
-      next: (res: any) => {
+      next: (_res: any) => {
         this.shows = this.shows.filter(s => s.id !== id);
         this.showsSubject.next([...this.shows]);
       }, error: (e) => {

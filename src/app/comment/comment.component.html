@@ -1,1 +1,20 @@
-<p>comment works!</p>
+<div class="comment">
+  <p>by {{commentUser.username}} at "{{comment.updatedAt.toLocaleString()}}"</p>
+  <textarea class="form-control" *ngIf="isEditing; else text;" [(ngModel)]="editingComment"></textarea>
+  <ng-template #text>
+    <div class="text">
+      {{comment.text}}
+    </div>
+  </ng-template>
+
+  <div *ngIf="comment.userId === user.id">
+    <button class="btn btn-danger" (click)="deleteComment()"><i class="bi bi-trash-fill"></i> Delete</button>
+    <button class="btn btn-primary" *ngIf="!isEditing; else saveCancelButtons" (click)="startEditing()">Edit
+    </button>
+    <ng-template #saveCancelButtons>
+      <button class="btn btn-success" (click)="save()">Save</button>
+      <button class="btn btn-secondary" (click)="cancel()">Cancel</button>
+    </ng-template>
+  </div>
+
+</div>

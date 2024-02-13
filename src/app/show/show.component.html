@@ -25,9 +25,10 @@
 
     </div>
   </div>
-
+  <br>
   <div class="comments">
-    <p>Posts ({{show.comments ? show.comments.length : 0}}):</p>
+    <p>Comments ({{show.comments ? show.comments.length : 0}}):</p>
+    <app-add-comment [showId]="show.id" />
     <app-comment *ngFor="let e of show.comments; let i = index" [comment]="e" [index]="i"/>
   </div>
 
