@@ -32,6 +32,24 @@ export class Comment {
   updatedAt: Date = new Date();
 }
 
+export class UserShow {
+  id: number = -1;
+  userId: number = -1;
+  showId: number = -1;
+  status: Staus = Staus.PLAN_TO_WATCH;
+  progress: number = 0;
+  score: number = 0;
+  show: Show = new Show();
+}
+
+export enum Staus {
+  WATCHING,
+  COMPLETED,
+  ON_HOLD,
+  DROPPED,
+  PLAN_TO_WATCH
+}
+
 export function getGenreString(show: Show): string {
   if (!show.genres)
     return '';

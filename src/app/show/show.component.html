@@ -14,7 +14,6 @@
       <div *ngIf="show.startDate">
         <p>{{show.endDate}}</p>
       </div>
-      <p>{{show.comments}}</p>
     </div>
     <div class="showRight">
       <h1>{{show.title}}</h1>
@@ -22,7 +21,7 @@
       <p>Description:</p>
       <p>{{show.description}}</p>
       <br>
-
+      <app-user-show [show]="show"/>
     </div>
   </div>
   <br>

@@ -25,6 +25,7 @@ import {
 import { FilterPipe } from './filter.pipe';
 import { CommentComponent } from './comment/comment.component';
 import { AddCommentComponent } from './add-comment/add-comment.component';
+import { UserShowComponent } from './user-show/user-show.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { AddCommentComponent } from './add-comment/add-comment.component';
     FilterPipe,
     CommentComponent,
     AddCommentComponent,
+    UserShowComponent,
   ],
   imports: [
     BrowserModule,

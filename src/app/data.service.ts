@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {environment} from "../environments/environment";
 import {HttpClient} from "@angular/common/http";
-import {Comment} from "./models";
+import {Comment, UserShow} from "./models";
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +10,7 @@ export class DataService {
   usersApi = environment.API_URL + '/users'
   showsApi = environment.API_URL + '/shows'
   myCommentsApi = environment.API_URL + '/me/comments'
+  myShowsApi = environment.API_URL + '/me/shows'
 
   constructor(private http: HttpClient) {
   }
@@ -57,5 +58,21 @@ export class DataService {
 
   deleteComment(id: number) {
     return this.http.delete(`${this.myCommentsApi}/${id}`);
+  }
+
+  getMyShows() {
+    return this.http.get(this.myShowsApi);
+  }
+
+  addMyShow(show: UserShow) {
+    return this.http.post(this.myShowsApi, show);
+  }
+
+  updateMyShow(show: UserShow) {
+    return this.http.put(`${this.myShowsApi}`, show);
+  }
+
+  deleteMyShow(id: number) {
+    return this.http.delete(`${this.myShowsApi}/${id}`);
   }
 }

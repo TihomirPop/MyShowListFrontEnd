@@ -1,0 +1,35 @@
+<div class="userShow">
+  <label>Status:</label>
+  <select class="form-select" [(ngModel)]="userShow.status" >
+    <option value="0">Watching</option>
+    <option value="1">Completed</option>
+    <option value="2">On Hold</option>
+    <option value="3">Dropped</option>
+    <option value="4" selected>Plan to Watch</option>
+  </select>
+
+  <br>
+  <label>Score:</label>
+  <select class="form-select" [(ngModel)]="userShow.score" >
+    <option value="0">0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+  </select>
+
+  <br>
+  <label>Episodes:</label>
+  <input type="number" class="form-select" [(ngModel)]="userShow.progress">
+
+  <div class="userShowButtons">
+    <button class="btn btn-success" (click)="saveShow()">Save</button>
+    <button class="btn btn-danger" (click)="deleteShow()">Delete</button>
+  </div>
+</div>
